@@ -9,7 +9,7 @@
         "registered": true,
         "proof": null,
         "username": "Elicoin1",
-        "balance": 295064,
+        "balance": 295084,
         "last_bonus_date": "2025-07-27",
         "last_ai_first": false,
         "last_bonus": "2025-08-04",
@@ -44,7 +44,7 @@
         "locked": 3000000
     },
     "metrics": {
-        "user_wallets": 295142,
+        "user_wallets": 295162,
         "bonus_wallet": 999967,
         "bot_wallet": 3404691,
         "ai_burned": 300180,
@@ -56,7 +56,6 @@
         "app": 1000000,
         "minting": 3000000
     },
-    
     "offers": [
         {
             "id": "offer_1754047695",
@@ -126,7 +125,7 @@
             "timestamp": "2025-08-05T21:05:11.747347"
         }
     ],
-    "circulating_supply": 1597702,
+    "circulating_supply": 4699820,
     "pending_withdrawals": [],
     "7132450372": {
         "registered": true,
@@ -144,5 +143,4 @@
         "5103401547_7132450372": "5103401547",
         "7132450372_5103401547": "7132450372"
     }
-
 }
