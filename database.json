@@ -1,0 +1,83 @@
+{
+    "bot_wallet": {
+        "balance": 3399966
+    },
+    "ai_wallet": {
+        "burned": 10,
+        "initial": 300000
+    },
+    "bonus_wallet": {
+        "balance": 999920
+    },
+    "locked_marketplace": {
+        "locked": 1000000
+    },
+    "locked_app": {
+        "locked": 1000000
+    },
+    "locked_blockchain_mint": {
+        "locked": 3000000
+    },
+    "5103401547": {
+        "registered": true,
+        "proof": null,
+        "username": "Elicoin1",
+        "first_name": "ELICOIN",
+        "balance": 292557,
+        "activated": true,
+        "referred_by": "",
+        "bonus_given": false,
+        "approved": true,
+        "ai_win_streak": 3,
+        "pending_activation": true,
+        "last_bonus": "2025-08-12"
+    },
+    "locked_wallets": {
+        "marketplace": 1000000,
+        "app": 1000000,
+        "minting": 3000000
+    },
+    "metrics": {
+        "user_wallets": 292597,
+        "bonus_wallet": 999920,
+        "bot_wallet": 3399973,
+        "ai_burned": 10,
+        "circulating": 4692490,
+        "timestamp": "2025-08-13T09:30:11.323650"
+    },
+    "transactions": [
+        {
+            "type": "topup",
+            "user_id": "5103401547",
+            "gross": 100000,
+            "fee": 2500,
+            "net": 97500,
+            "timestamp": "2025-08-12T19:42:56.067334"
+        },
+        {
+            "type": "topup",
+            "user_id": "5103401547",
+            "gross": 200000,
+            "fee": 5000,
+            "net": 195000,
+            "timestamp": "2025-08-12T19:49:50.560566"
+        }
+    ],
+    "circulating_supply": 1600018,
+    "1802157776": {
+        "registered": true,
+        "proof": null,
+        "username": "Xavi_xxvv",
+        "first_name": "Xav!",
+        "balance": 47,
+        "activated": false,
+        "referred_by": "5103401547",
+        "bonus_given": false,
+        "approved": true,
+        "ai_win_streak": 1
+    },
+    "pvp_queue": [],
+    "pvp_last_starter": {
+        "1802157776_5103401547": "1802157776"
+    }
+}
