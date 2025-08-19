@@ -1472,7 +1472,7 @@ def show_top_earners(update: Update, context: CallbackContext):
             users.append((uid, data.get("balance", 0)))
 
     if not users:
-        query.edit_message_text("📭 No users found.")
+        query.message.reply_text("📭 No users found.")
         return
 
     # Sort by balance (highest first)
@@ -1485,14 +1485,13 @@ def show_top_earners(update: Update, context: CallbackContext):
     message = "🏆 *Top Earners Leaderboard*\n\n"
 
     for i, (uid, bal) in enumerate(top_list):
-        username = db[uid].get("username")
-        if username:
-            display_name = f"@{username}"
-        else:
-            display_name = db[uid].get("first_name", f"User_{uid}")
-        message += f"{medals[i]} {display_name} — {bal} ELI\n"
+        username = db[uid].get("username") or f"User_{uid}"
+        # Escape special characters in Markdown usernames
+        safe_username = username.replace("_", "\\_").replace("*", "\\*").replace("[", "\\[")
+        message += f"{medals[i]} {safe_username} — {bal} ELI\n"
 
-    query.edit_message_text(message, parse_mode=ParseMode.MARKDOWN)
+    query.message.reply_text(message, parse_mode=ParseMode.MARKDOWN)
+
 
 
 TOTAL_SUPPLY = 5000000  # global constant, place at the top of your file
@@ -2320,5 +2319,6 @@ def main():
 if __name__ == "__main__":
     main()
     recalculate_wallet()
+
 
 
