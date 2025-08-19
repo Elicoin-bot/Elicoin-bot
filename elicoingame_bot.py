@@ -352,9 +352,11 @@ def handle_game_menu_selection(update: Update, context: CallbackContext):
         )
     elif option == "bot_wallet":
         return bot_wallet(update, context)
-    
+    elif option == "top_earners":
+        show_top_earners(update, context)
     elif option == "bonus":
         return claim_bonus(update, context)    
+    
     elif option == "topup":
         context.user_data["topup_pending"] = True  # 🔥 Set flag here
         return context.bot.send_message(
@@ -1459,7 +1461,6 @@ def bot_wallet(update: Update, context: CallbackContext):
     )
 
 
-
 def show_top_earners(update: Update, context: CallbackContext):
     query = update.callback_query
     db = load_db()
@@ -1471,7 +1472,7 @@ def show_top_earners(update: Update, context: CallbackContext):
             users.append((uid, data.get("balance", 0)))
 
     if not users:
-        query.message.reply_text("📭 No users found.")
+        query.edit_message_text("📭 No users found.")
         return
 
     # Sort by balance (highest first)
@@ -1484,13 +1485,14 @@ def show_top_earners(update: Update, context: CallbackContext):
     message = "🏆 *Top Earners Leaderboard*\n\n"
 
     for i, (uid, bal) in enumerate(top_list):
-        username = db[uid].get("username", f"User_{uid}")
-        message += f"{medals[i]} {username} — {bal} ELI\n"
+        username = db[uid].get("username")
+        if username:
+            display_name = f"@{username}"
+        else:
+            display_name = db[uid].get("first_name", f"User_{uid}")
+        message += f"{medals[i]} {display_name} — {bal} ELI\n"
 
-    query.message.reply_text(message, parse_mode=ParseMode.MARKDOWN)
-
-
-
+    query.edit_message_text(message, parse_mode=ParseMode.MARKDOWN)
 
 
 TOTAL_SUPPLY = 5000000  # global constant, place at the top of your file
@@ -2318,4 +2320,5 @@ def main():
 if __name__ == "__main__":
     main()
     recalculate_wallet()
+
 
